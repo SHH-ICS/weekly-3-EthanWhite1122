@@ -22,5 +22,5 @@ while (redo)
     a = float(a) + 3.35
   else: 
     print"invalid size"
-cost=((size+toppings)*hst)
-
+a = a*hst
+print"Your cost is" + str(a)
