@@ -9,14 +9,8 @@
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
   <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
-  <!-- Favicon Stuff goes here-->
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="manifest" href="favicon/site.webmanifest">
-
   <!-- Title Stuff goes here -->
-  <title>Julia Fan Page</title>
+  <title>Ethan's Pizzaria'</title>
 
 </head>
 
@@ -40,17 +34,43 @@
 
         <center>
 
-          <?php
-          $diameter = 0;
-          if (isset($_POST['diameter'])) {
-            $diameter = $_POST['diameter'];
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $a = 0;
+      $b = 0;
+
+      $x = strtolower(trim($_POST['size']));
+
+      if ($x == 'large' || $x == 'l') {
+        $a = 6.00;
+      } elseif ($x == 'extra large' || $x == 'xl') {
+        $a = 10.00;
+      } else {
+      echo "<p>Please enter a valid size (Large / Extra Large).</p>";
+        exit();
+      }
+
+      $t = isset($_POST['toppings']) ? intval($_POST['toppings']) : 0;
+
+      if ($t == 1) {
+        $b = 1.00;
+      } elseif ($t == 2) {
+        $b = 1.75;
+      } elseif ($t == 3) {
+        $b = 2.50;
+      } elseif ($t == 4) {
+        $b = 3.35;
+      } elseif ($t == 0) {
+        $b = 0.00;
+      } else {
+        echo "<p>Please enter a valid number of toppings (0-4).</p>";
+        exit();
+      }
+
+            $v = ($a + $b) * 1.13;
+
+            echo "<p>Your total cost is: $" . number_format($v, 2) . "</p>";
           }
-          echo "<p>Diameter is = " . number_format((float)$diameter, 2, '.', '') . "</p>\n";
-          $radius = ($diameter / 2);
-          echo "<p>Radius is = " . number_format((float)$radius, 2, '.', '') . "</p>\n";
-          echo "<p>Area is = " . number_format((float)(pi() * ($radius ** 2)), 2, '.', '') . "</p>\n";
-          echo "<p>Circumference is = " . number_format((float)(2 * $radius * pi()), 2, '.', '') . "</p>\n";
-          ?>
 
           <br /><br />
           <!-- Colored raised button -->
