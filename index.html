@@ -7,14 +7,14 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
   <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-  <title>Pizza Order</title>
+  <title>Ethan's Pizzaria'</title>
 </head>
 <body>
 
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">Pizza Calculator</span>
+        <span class="mdl-layout-title">Pizza Cost Calculator</span>
         <div class="mdl-layout-spacer"></div>
       </div>
     </header>
@@ -24,16 +24,16 @@
           <form action="handler.php" method="POST">
             <div class="mdl-textfield mdl-js-textfield">
               <input class="mdl-textfield__input" type="text" id="size" name="size" required>
-              <label class="mdl-textfield__label" for="size">Enter Pizza Size (Large / Extra Large):</label>
+              <label class="mdl-textfield__label" for="size">Enter Pizza Size (Large or Extra Large):</label>
             </div>
             <br />
             <div class="mdl-textfield mdl-js-textfield">
               <input class="mdl-textfield__input" type="number" id="toppings" name="toppings" min="0" max="4" required>
-              <label class="mdl-textfield__label" for="toppings">Enter Number of Toppings (0-4):</label>
+              <label class="mdl-textfield__label" for="toppings">Enter Amount Of Toppings You Want:</label>
             </div>
             <br />
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
-              Calculate Cost
+              Calculate Cost Of Pizza
             </button>
           </form>
         </center>
